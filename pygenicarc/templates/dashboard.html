@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome, {{ session['email'] }}!</h2>
+<p>This is your student dashboard.</p>
+
+<a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+
+<h3>Your Courses:</h3>
+<ul>
+    {% for course in enrolled_courses %}
+        <li>{{ course.title }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
